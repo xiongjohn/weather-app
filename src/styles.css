@@ -35,12 +35,20 @@ input {
   text-indent: 5px;
 }
 
+input:focus {
+  color: white;
+}
+
 input::placeholder {
   color: rgba(255, 255, 255, 0.9);
 }
 
 input:focus-visible {
   outline: 1px solid transparent;
+}
+
+input[type="text"] {
+  color: white;
 }
 
 button {
