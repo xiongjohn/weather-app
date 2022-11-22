@@ -1,10 +1,11 @@
 body {
   color: white;
   background-image: url(/img/Day.jpg);
-  background-size: 1600px;
+  background-size: 2000px;
   margin-left: 0;
   margin-right: 0;
   position: fixed;
+  background-position: top;
 }
 
 header {
