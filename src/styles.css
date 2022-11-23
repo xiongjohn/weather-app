@@ -63,6 +63,7 @@ button {
 
 main {
   margin-top: 48px;
+  text-transform: capitalize;
 }
 
 .five-day-forecast {

@@ -7,32 +7,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weather App</title>
   <link rel="stylesheet" href="/src/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+
   <script src="https://kit.fontawesome.com/fd657a38e3.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
   <header>
     <div class="logo">Weather App</div>
-    <form><input type="search" placeholder="Enter City Name" />
+    <form id="search-bar"><input type="search" placeholder="Enter City Name" />
       <button type="submit"><i class="fa fa-solid fa-magnifying-glass"></i></button>
     </form>
     <div class="current-time">12:25 PM</div>
   </header>
   <main>
-    <h1>
+    <h1 id="city">
       Minneapolis
     </h1>
     <ul class="weather">
-      <li>windy</li>
-      <li class="temperature">22°</li>
-      <li>H:32° L:19°</li>
+      <li id="wind">windy</li>
+      <li class="temperature"><span id="main-temp">22</span>°</li>
+      <li>H:<span id="high-temp">32</span>° L:<span id="low-temp">19</span>°</li>
     </ul>
-    <h2>
+    <h2 id="weather-description">
       Parly Cloudy
     </h2>
   </main>
   <div>
-    <ul class="five-day-forecast">
+    <ul class="five-day-forecast" id="forecast">
       <li class="card">
 
         <div>Day 1</div>
@@ -68,6 +70,8 @@
       </li>
     </ul>
     </section>
+
+    <script src="/src/index.js"></script>
 </body>
 
 </html>
