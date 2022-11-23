@@ -43,14 +43,13 @@ function formatDay(timestamp) {
     "Friday",
     "Saturday",
   ];
-  console.log(day);
+
   return days[day];
 }
 
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
-  console.log(forecast);
 
   let forecastHtml = ``;
   forecast.forEach((forecastDay, index) => {
@@ -105,6 +104,33 @@ function windDescription(response) {
   }
 }
 
+function formatTime(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let hour = date.getHours();
+
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  let amPM = hour <= 11 ? `AM` : `PM`;
+
+  switch (true) {
+    case hour === 0:
+      hour = 12;
+      break;
+    case hour > 12 && hour <= 24:
+      hour = hour - 12;
+      break;
+    case hour === 12:
+      break;
+    default:
+      return "loading..";
+  }
+
+  return `${hour}:${minutes} ${amPM}`;
+}
+
 function displayWeather(response) {
   let city = document.querySelector("#city");
   let temperature = document.querySelector("#main-temp");
@@ -112,6 +138,7 @@ function displayWeather(response) {
   let wind = document.querySelector("#wind");
   let highTemp = document.querySelector("#high-temp");
   let lowTemp = document.querySelector("#low-temp");
+  let currentTime = document.querySelector("#header-time");
   console.log(response);
 
   city.innerHTML = response.data.name;
@@ -120,6 +147,7 @@ function displayWeather(response) {
   wind.innerHTML = windDescription(Math.round(response.data.wind.speed));
   highTemp.innerHTML = Math.round(response.data.main.temp_max);
   lowTemp.innerHTML = Math.round(response.data.main.temp_min);
+  currentTime.innerHTML = formatTime(response.data.dt);
 
   getForecast(response.data.coord);
 }
