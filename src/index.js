@@ -51,6 +51,7 @@ function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   console.log(forecast);
+
   let forecastHtml = ``;
   forecast.forEach((forecastDay, index) => {
     if (index < 5) {
@@ -60,8 +61,10 @@ function displayForecast(response) {
       
       <div>${formatDay(forecastDay.dt)}</div>
       <div>
-      <img src="${forecastDay.weather[0].icon}" alt="Weaterh icon"/>
-      Weather Icon</div>
+      <img src="${formatIcon(
+        forecastDay.weather[0].icon
+      )}" class="forecast-icon"alt="Weather icon"/>
+      </div>
       <div>H: ${Math.round(forecastDay.temp.max)}° L: ${Math.round(
           forecastDay.temp.min
         )}°</div>
@@ -121,21 +124,26 @@ function displayWeather(response) {
   getForecast(response.data.coord);
 }
 
-function handleSearch(event) {
-  event.preventDefault();
-
-  let city = event.target[0].value;
-
-  console.log(event.target[0].value);
+function searchCity(city) {
   let apiKey = "d1a86552de255334f6117b348c4519bd";
   let units = "imperial";
   let apiEndPoint = "https://api.openweathermap.org/data/2.5/weather?";
   let apiUrl = `${apiEndPoint}q=${city}&appid=${apiKey}&units=${units}`;
 
-  event.target[0].value = "";
   axios.get(apiUrl).then(displayWeather);
+}
+
+function handleSearch(event) {
+  event.preventDefault();
+
+  let city = event.target[0].value;
+  searchCity(city);
+
+  event.target[0].value = "";
 }
 
 let searchBar = document.querySelector("#search-bar");
 
 searchBar.addEventListener("submit", handleSearch);
+
+searchCity("Minneapolis");

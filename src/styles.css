@@ -131,3 +131,7 @@ ul {
 .five-day-forecast ul:nth-child(1) {
   padding-left: 10px;
 }
+
+.forecast-icon {
+  width: 50px;
+}
