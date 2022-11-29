@@ -182,7 +182,6 @@ function displayWeather(response) {
   backgroundImg.style.backgroundImage = `url(${formatIcon(iconCode)})`;
   mainBackground.style.background = `${changeBackground(iconCode)}`;
 
-  console.log(response.data);
   getForecast(response.data.coord);
 }
 
