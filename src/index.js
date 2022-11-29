@@ -58,7 +58,7 @@ function displayForecast(response) {
         forecastHtml +
         `<li class="card">
       
-      <div>${formatDay(forecastDay.dt)}</div>
+      <div class="main-font">${formatDay(forecastDay.dt)}</div>
       <div>
       <img src="${formatIcon(
         forecastDay.weather[0].icon
