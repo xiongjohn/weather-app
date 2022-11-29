@@ -1,14 +1,17 @@
 body {
   color: white;
-  background-image: url(/img/Day.jpg);
-  background-size: 2000px;
-  margin-left: 0;
-  margin-right: 0;
-  /* position: fixed; */
-  background-position: top;
+  margin: 0;
+  background: linear-gradient(to top, #283e51, #0a2342);
   font-family: "Roboto", sans-serif;
+  height: 140vh;
 }
-
+#background-image {
+  background-position: top;
+  background-image: url(/img/clear-day.svg);
+  background-size: 600px;
+  background-repeat: no-repeat;
+  background-position: 50% 35%;
+}
 header {
   display: flex;
   justify-content: space-between;
@@ -67,6 +70,10 @@ main {
   text-transform: capitalize;
 }
 
+.blend-font {
+  mix-blend-mode: difference;
+}
+
 footer {
   background: rgba(0, 0, 0, 0.15);
   background-size: 100%;
@@ -117,12 +124,13 @@ ul {
   margin-right: auto;
   border: 20px solid rgba(0, 0, 0, 0.15);
   border-radius: 200px;
-  padding: 50px;
+  padding: 80px;
   max-width: 200px;
 }
 .temperature {
   font-size: 148px;
-  text-indent: 20px;
+  text-indent: 10px;
+  color: black;
 }
 
 .five-day-forecast {
@@ -157,6 +165,7 @@ ul {
     margin: 0 auto;
     position: relative;
     background-size: 3000px;
+    height: 100vh;
   }
 
   .card {
@@ -173,5 +182,15 @@ ul {
     bottom: 0;
     left: 47%;
     background: none;
+  }
+
+  #background-image {
+    background-size: 800px;
+    background-position: top 50px;
+  }
+
+  .weather {
+    padding: 200px;
+    border-radius: 400px;
   }
 }

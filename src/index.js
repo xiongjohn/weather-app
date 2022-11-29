@@ -7,7 +7,7 @@ function formatIcon(iconCode) {
     case iconCode === "02d":
       return "/img/partly-cloudy-day.svg";
     case iconCode === "02n":
-      return "/img/partly-cloudy-night";
+      return "/img/partly-cloudy-night.svg";
     case iconCode === "03d":
       return "/img/overcast-day.svg";
     case iconCode === "03n":
@@ -72,7 +72,6 @@ function displayForecast(response) {
     }
   });
 
-  console.log(forecastHtml);
   forecastElement.innerHTML = forecastHtml;
 }
 
@@ -100,7 +99,7 @@ function windDescription(response) {
     case windSpeed >= 36:
       return "extremely windy";
     default:
-      console.log("Wind speed error");
+      console.error("Wind speed error");
   }
 }
 
@@ -131,6 +130,35 @@ function formatTime(timestamp) {
   return `${hour}:${minutes} ${amPM}`;
 }
 
+function changeBackground(iconCode) {
+  switch (true) {
+    case iconCode === "01d" ||
+      iconCode === "02d" ||
+      iconCode === "03d" ||
+      iconCode === "04d" ||
+      iconCode === "09d" ||
+      iconCode === "10d" ||
+      iconCode === "11d" ||
+      iconCode === "13d" ||
+      iconCode === "50d":
+      return "linear-gradient(to top, #57c1eb, #246fa8)";
+
+    case iconCode === "01n" ||
+      iconCode === "02n" ||
+      iconCode === "03n" ||
+      iconCode === "04n" ||
+      iconCode === "09n" ||
+      iconCode === "10n" ||
+      iconCode === "11n" ||
+      iconCode === "13n" ||
+      iconCode === "50n":
+      return "linear-gradient(to top, #283e51, #0a2342)";
+
+    default:
+      return "linear-gradient(to top, #283e51, #0a2342)";
+  }
+}
+
 function displayWeather(response) {
   let city = document.querySelector("#city");
   let temperature = document.querySelector("#main-temp");
@@ -139,7 +167,10 @@ function displayWeather(response) {
   let highTemp = document.querySelector("#high-temp");
   let lowTemp = document.querySelector("#low-temp");
   let currentTime = document.querySelector("#header-time");
-  console.log(response);
+  let backgroundImg = document.getElementById(`background-image`);
+  let mainBackground = document.getElementById(`container`);
+  let iconCode = response.data.weather[0].icon;
+  iconCode = "09n";
 
   city.innerHTML = response.data.name;
   temperature.innerHTML = Math.round(response.data.main.temp);
@@ -148,7 +179,10 @@ function displayWeather(response) {
   highTemp.innerHTML = Math.round(response.data.main.temp_max);
   lowTemp.innerHTML = Math.round(response.data.main.temp_min);
   currentTime.innerHTML = formatTime(response.data.dt);
+  backgroundImg.style.backgroundImage = `url(${formatIcon(iconCode)})`;
+  mainBackground.style.background = `${changeBackground(iconCode)}`;
 
+  console.log(response.data);
   getForecast(response.data.coord);
 }
 

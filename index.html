@@ -17,71 +17,73 @@
   <script src="https://kit.fontawesome.com/fd657a38e3.js" crossorigin="anonymous"></script>
 </head>
 
-<body>
-  <header>
-    <div class="logo main-font">Weather App</div>
-    <form id="search-bar"><input type="search" placeholder="Enter City Name" />
-      <button type="submit"><i class="fa fa-solid fa-magnifying-glass"></i></button>
-    </form>
-    <div class="current-time main-font" id="header-time">12:25 PM</div>
-  </header>
-  <main>
-    <h1 class="main-font" id="city">
-      Minneapolis
-    </h1>
-    <ul class="weather">
-      <li class="main-font" id="wind">windy</li>
-      <li class="temperature"><span id="main-temp">22</span>°</li>
-      <li>H:<span id="high-temp">32</span>° L:<span id="low-temp">19</span>°</li>
-    </ul>
-    <h2 class="main-font" id="weather-description">
-      Parly Cloudy
-    </h2>
-  </main>
-  <section>
-    <ul class="five-day-forecast" id="forecast">
-      <li class="card">
+<body id="container">
+  <div id="background-image">
+    <header>
+      <div class="logo main-font">Weather App</div>
+      <form id="search-bar"><input type="search" placeholder="Enter City Name" />
+        <button type="submit"><i class="fa fa-solid fa-magnifying-glass"></i></button>
+      </form>
+      <div class="current-time main-font" id="header-time">12:25 PM</div>
+    </header>
+    <main>
+      <h1 class="main-font blend-font" id="city">
+        Minneapolis
+      </h1>
+      <ul class="weather">
+        <li class="main-font blend-font" id="wind">windy</li>
+        <li class="temperature"><span id="main-temp">22</span>°</li>
+        <li class="blend-font">H:<span id="high-temp">32</span>° L:<span id="low-temp">19</span>°</li>
+      </ul>
+      <h2 class="main-font " id="weather-description">
+        Parly Cloudy
+      </h2>
+    </main>
+    <section>
+      <ul class="five-day-forecast" id="forecast">
+        <li class="card">
 
-        <div>Day 1</div>
-        <div>Weather Icon</div>
-        <div>H:30 L:17</div>
+          <div>Day 1</div>
+          <div>Weather Icon</div>
+          <div>H:30 L:17</div>
 
-      </li>
+        </li>
 
-      <li class="card">
+        <li class="card">
 
-        <div>Day 2</div>
-        <div>Weather Icon</div>
-        <div>H:30 L:17</div>
+          <div>Day 2</div>
+          <div>Weather Icon</div>
+          <div>H:30 L:17</div>
 
-      </li>
+        </li>
 
-      <li class="card">
-        <div>Day 3</div>
-        <div>Weather Icon</div>
-        <div>H:30 L:17</div>
-      </li>
+        <li class="card">
+          <div>Day 3</div>
+          <div>Weather Icon</div>
+          <div>H:30 L:17</div>
+        </li>
 
-      <li class="card">
-        <div>Day 4</div>
-        <div>Weather Icon</div>
-        <div>H:30 L:17</div>
-      </li>
+        <li class="card">
+          <div>Day 4</div>
+          <div>Weather Icon</div>
+          <div>H:30 L:17</div>
+        </li>
 
-      <li class="card">
-        <div>Day 5</div>
-        <div>Weather Icon</div>
-        <div>H:30 L:17</div>
-      </li>
-    </ul>
+        <li class="card">
+          <div>Day 5</div>
+          <div>Weather Icon</div>
+          <div>H:30 L:17</div>
+        </li>
+      </ul>
 
-  </section>
+    </section>
 
-  <footer>
-    Coded by John Xiong - <a href="https://github.com/xiongjohn/weather-app">
-      Github
-    </a>
-  </footer>
+    <footer>
+      Coded by John Xiong - <a href="https://github.com/xiongjohn/weather-app">
+        Github
+      </a>
+    </footer>
+  </div>
   <script src="/src/index.js"></script>
 </body>
 
