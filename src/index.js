@@ -170,7 +170,6 @@ function displayWeather(response) {
   let backgroundImg = document.getElementById(`background-image`);
   let mainBackground = document.getElementById(`container`);
   let iconCode = response.data.weather[0].icon;
-  iconCode = "09n";
 
   city.innerHTML = response.data.name;
   temperature.innerHTML = Math.round(response.data.main.temp);
@@ -196,10 +195,8 @@ function searchCity(city) {
 
 function handleSearch(event) {
   event.preventDefault();
-
   let city = event.target[0].value;
   searchCity(city);
-
   event.target[0].value = "";
 }
 

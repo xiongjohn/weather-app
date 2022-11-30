@@ -38,6 +38,7 @@ button {
 
 input {
   text-indent: 5px;
+  font-size: 16px;
 }
 
 input:focus {
@@ -63,6 +64,7 @@ button {
   margin: 0;
   cursor: pointer;
   color: white;
+  display: none;
 }
 
 main {
@@ -167,6 +169,10 @@ ul {
     position: relative;
     background-size: 3000px;
     height: 100vh;
+  }
+
+  button {
+    display: block;
   }
 
   .card {
